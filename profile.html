@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #121212;
+            /* สีพื้นหลังเข้ม */
+            --card-bg-color: #1e1e1e;
+            /* สีพื้นหลังของ card */
+            --text-color: #e0e0e0;
+            /* สีข้อความ */
+            --navbar-bg-color: #333;
+            /* สีพื้นหลังของ navbar */
+            --btn-bg-color: #6200ea;
+            /* สีพื้นหลังของปุ่ม */
+            --btn-hover-bg-color: #3700b3;
+            /* สีพื้นหลังของปุ่มเมื่อ hover */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding-top: 0px;
+            /* เพิ่มพื้นที่ว่างด้านบนสำหรับ navbar */
+            padding-bottom: 230px;
+        }
+
+        .btn-dark-mode {
+            background-color: #6200ea;
+            /* สีพื้นหลังของปุ่ม */
+            color: #e0e0e0;
+            /* สีข้อความของปุ่ม */
+            border: 1px solid #6200ea;
+            /* สีกรอบปุ่ม */
+        }
+
+        .btn-dark-mode:hover {
+            background-color: #3700b3;
+            /* สีพื้นหลังของปุ่มเมื่อ hover */
+            color: #fff;
+            /* สีข้อความของปุ่มเมื่อ hover */
+            border-color: #3700b3;
+            /* สีกรอบปุ่มเมื่อ hover */
+        }
+
+        .navbar {
+            background-color: var(--navbar-bg-color);
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: var(--text-color) !important;
+        }
+
+        .member-card {
+            margin: 20 px 60;
+            background-color: var(--card-bg-color);
+            border: 1px solid #444;
+            margin-left: 500px;
+            margin-right: 500px;
+            /* เพิ่มกรอบให้ card ชัดเจน */
+        }
+
+        .btn-bd-primary {
+            --bs-btn-bg: var(--btn-bg-color);
+            --bs-btn-hover-bg: var(--btn-hover-bg-color);
+            --bs-btn-border-color: var(--btn-bg-color);
+            --bs-btn-hover-border-color: var(--btn-hover-bg-color);
+        }
+
+        .navbar {
+            background-color: var(--navbar-bg-color);
+            margin-bottom: 0px;
+            /* เพิ่มพื้นที่ว่างด้านล่างของ navbar */
+        }
+
+        .footer {
+            color: var(--text-color);
+            padding: 10px;
+        }
+
+        h1 {
+            margin-top: 50px;
+            /* เพิ่มระยะห่างด้านบนให้กับข้อความ CSMJU */
+            margin-bottom: 50px;
+        }
+
+        .containercard {
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        @font-face {
+            font-family: 'NotoSans_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-regular.woff);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_medium_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-medium.ttf);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_bold_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-bold.woff);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_semibold_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-semibold.ttf);
+        }
+
+        .circle-img {
+            width: 150px;
+            /* กำหนดขนาดที่ต้องการ */
+            height: 80px;
+            /* กำหนดขนาดที่ต้องการ */
+            border-radius: 50%;
+            /* ทำให้ภาพเป็นวงกลม */
+            object-fit: cover;
+            /* ปรับขนาดภาพให้พอดีกับขนาดที่กำหนด */
+        }
+
+        .navbar {
+            background-color: var(--navbar-bg-color);
+            margin-bottom: 100px;
+            /* เพิ่มพื้นที่ว่างด้านล่างของ navbar */
+        }
+        .search-form input {
+            width: 460px; /* Adjust width as needed */
+        }
+
+        .search-form .btn {
+            margin-left: 10px; /* Space between input and button */
+        }
+        .instructions {
+            text-align: left; /* Align text to the left */
+            margin-top: 90px; /* Space above the instructions */
+            margin-bottom: -80px; /* Space below the instructions */
+        }
+
+        .instructions p {
+            margin-bottom: 0px; /* Space between lines */
+        }
+        
+    </style>
+</head>
+
+<body>
+    
+    <header data-bs-theme="dark">
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <svg xmlns="" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="13" r="4" />
+                </svg>
+                <strong class="lead text-body-secondary text-center">Computer Science, Maejo University</strong>
+                <form class="form-inline search-form" role="search">
+                    <input class="form-control me-10 bg-dark text-white" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-dark-mode" type="submit">Search</button>
+                </form>
+                </a>
+            </div>
+        </div>
+        </div>
+        
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-lg-6 mb-4 mb-lg-0">
+                    <div class="card mb-3" style="border-radius: .5rem; background-color: #333;">
+                        <div class="row g-0">
+                            <div class="col-md-4 gradient-custom text-center text-white"
+                                style="background-color: #444; border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                <img src="https://scontent.fbkk4-1.fna.fbcdn.net/v/t39.30808-1/426012818_915851949927186_4228371994844791208_n.jpg?stp=dst-jpg_s200x200&_nc_cat=107&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeE4GvwUloA9hQ1HaR7lpLHTshcSTJjwLauyFxJMmPAtq67P4Ux8sADtGR40AExGsTCmBRldFdV8hjgGQwD-fbbF&_nc_ohc=lOioeU_KkCwQ7kNvgGgewfN&_nc_ht=scontent.fbkk4-1.fna&oh=00_AYBX4urkou0lH89N8qIiroJuWOP75blchrLM_jOxKbJoRw&oe=66D027DF"
+                                    alt="Avatar" class="img-fluid my-5 circle-img" style="width: 80px;" />
+                                <h5>Sack Thanapat</h5>
+                                <p>Student</p>
+                                <i class="far fa-edit mb-5"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4" style="color: #ccc;">
+                                    <h6>Information</h6>
+                                    <hr class="mt-0 mb-4" style="border-color: #666;">
+                                    <div class="row pt-1">
+                                        <div class="col-6 mb-3">
+                                            <h6>Email</h6>
+                                            <p class="text-muted">Sack.thanapat0157@gmail.com</p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <h6>Phone</h6>
+                                            <p class="text-muted">062 045 3377</p>
+                                        </div>
+                                    </div>
+                                    <h6>Projects</h6>
+                                    <hr class="mt-0 mb-4" style="border-color: #666;">
+                                    <div class="row pt-1">
+                                        <div class="col-6 mb-3">
+                                            <h6>Age</h6>
+                                            <p class="text-muted">20 year</p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <h6>Most Viewed</h6>
+                                            <p class="text-muted">Netflix</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-start">
+                                        <a href="#!" style="color: #ccc;"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                                        <a href="#!" style="color: #ccc;"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                                        <a href="#!" style="color: #ccc;"><i class="fab fa-instagram fa-lg"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<footer class="footer text-center mt-4">
+    <p>6th Floor, 60th Anniversary Building, 
+        Faculty of Science, Maejo University 
+        63 Moo 4, Nong Han San Sai, Chiang Mai 50290 <br>
+        Tel. 053-873890-3 Fax. 053-873898 <br>
+        E-mail : cs@mju.ac.th<br>
+
+        © 2024 Computer Science MJU</p>
+</footer>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

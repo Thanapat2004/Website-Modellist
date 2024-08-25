@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทำเนียบรุ่น - Alumni Batch Directory</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .card {
+            margin: 4px -8px;
+            background-color: #1f1f1f;
+            border: none;
+        }
+
+        .card-body {
+            color: #ffffff;
+        }
+
+        .btn-primary {
+            background-color: #6200ee;
+            border-color: #6200ee;
+        }
+
+        .btn-primary:hover {
+            background-color: #3700b3;
+            border-color: #3700b3;
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            color: #ffffff;
+        }
+
+        .navbar {
+            background-color: #1f1f1f;
+        }
+
+        .text-body-secondary {
+            color: #b0b0b0;
+        }
+
+        .navbar-brand,
+        .navbar-toggler-icon,
+        .navbar-collapse,
+        .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+        .search-section {
+            margin: 20px 10px; /* Space around the search section */
+            text-align: center; /* Center the text */
+        }
+
+        .search-form {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-form input {
+            width: 460px; /* Adjust width as needed */
+        }
+
+        .search-form .btn {
+            margin-left: 10px; /* Space between input and button */
+        }
+        .instructions {
+            text-align: left; /* Align text to the left */
+            margin-top: 90px; /* Space above the instructions */
+            margin-bottom: -80px; /* Space below the instructions */
+        }
+
+        .instructions p {
+            margin-bottom: 0px; /* Space between lines */
+        }
+    </style>
+</head>
+
+<body>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                    <svg xmlns="" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"
+                        class="me-2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="13" r="4" /></svg>
+                    <strong class="lead text-body-secondary">Computer Science, Maejo University</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">CSMJU</h1>
+                    <p class="lead text-body-secondary">The Department of Computer Science has been offered since the academic year 1993 and 
+                        is the first department of the Faculty of Science to be established 
+                        together with the Faculty of Science, with a total of 30 generations of students.</p>
+                    <p>
+                        <a href="#" class="btn btn-primary my-2">Login</a>
+                        <a href="#" class="btn btn-secondary my-2">Forgetpassword</a>
+                    </p>
+                </div>
+            </div>
+            <div class="search-section">
+                <h3>Search</h3>
+                <form class="form-inline search-form">
+                    <input class="form-control" id="searchInput" type="search" placeholder="Search for name" aria-label="Search">
+                    <button class="btn btn-primary" type="button">return</button>
+                </form>
+            </div>
+        </section>
+        <!-- Batch Directory -->
+        <div class="container mt-5" id="app">
+            <div class="row">
+                <!-- Loop through all 30 batches -->
+                <div class="col-lg-4 col-md-6" v-for="batch in batches" :key="batch.id">
+                    <div class="card ">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">MODEL {{ batch.id }}</h5>
+                            <p class="card-text text-center">{{ batch.description }}</p>
+                            <a :href="'batch1.html'" class="btn btn-primary" style="display: block;">View details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center mt-4 py-4">
+        <div class="container">
+            <p class="float-end mb-1">
+              <a href="#">Back to top</a>
+            </p>
+            <p class="mb-1">6th Floor, 60th Anniversary Building, Faculty of Science, Maejo University
+                63 Moo 4, Nong Han San Sai, Chiang Mai 50290
+                Tel. 053-873890-3
+                Fax. 053-873898
+                E-mail : cs@mju.ac.th</p>
+        <p>© 2024 Computer Science MJU</p>
+    </footer>
+
+    <!-- VueJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                batches: Array.from({ length: 30 }, (v, k) => ({
+                    id: k + 1,
+                    description: `Details of model ${k + 1}`
+                }))
+            }
+        });
+    </script>
+</body>
+
+</html>
